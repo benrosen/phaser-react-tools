@@ -34,8 +34,8 @@ export default function App() {
           },
           create: function () {
             console.log('create')
-          },
-        },
+          }
+        }
       }}
     >
       {/* YOUR GAME UI GOES HERE */}

@@ -24,6 +24,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
+    "phaser": "^3.0.0",
     "react": "^16.0.0"
   },
   "devDependencies": {

@@ -1,6 +1,15 @@
-import React from 'react'
-import styles from './styles.module.css'
+import GameContext, { GameProvider } from './contexts/GameContext'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+import GameComponent from './components/GameComponent'
+import useEventEmitter from './hooks/useEventEmitter'
+import useEventListener from './hooks/useEventListener'
+import usePhaser from './hooks/usePhaser'
+
+export {
+  GameComponent,
+  GameContext,
+  GameProvider,
+  useEventEmitter,
+  useEventListener,
+  usePhaser
 }

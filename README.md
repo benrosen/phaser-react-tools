@@ -16,14 +16,14 @@ To install, run:
 
 ## Config
 
-The `Game` component is a [HOC][3] that can be configured [just like a normal Phaser game][4].
+The `GameComponent` is a [HOC][3] that can be configured [just like a normal Phaser game][4].
 
 ```jsx
-import { Game } from 'phaser-react-tools'
+import { GameComponent } from 'phaser-react-tools'
 
 export default function App() {
   return (
-    <Game
+    <GameComponent
       config={{
         backgroundColor: '000000',
         height: 300,
@@ -39,7 +39,7 @@ export default function App() {
       }}
     >
       {/* YOUR GAME UI GOES HERE */}
-    </Game>
+    </GameComponent>
   )
 }
 ```
@@ -64,13 +64,22 @@ The `useEventListener` hook can help you handle game events in your React compon
 import { useEventListener } from 'phaser-react-tools'
 
 export default () => {
-  useEventListener('BUTTON_CLICK_EVENT', ({ detail }) => {
-    console.log(detail)
+  useEventListener('BUTTON_CLICK_EVENT', (event) => {
+    console.log(event)
   })
 }
 ```
+
+## Next steps
+
+Check out the working example in the `/example` directory if you want to start tinkering right away, or [visit the docs][5] if you want to read about how everything works.
+
+If you find a bug or have ideas for improvements, please [create an issue][6] and/or [submit a pull request][7] on GitHub.
 
 [1]: https://www.npmjs.com/package/phaser 'Phaser package'
 [2]: https://www.npmjs.com/package/react 'React package'
 [3]: https://reactjs.org/docs/higher-order-components.html 'Higher-order component'
 [4]: https://photonstorm.github.io/phaser3-docs/Phaser.Types.Core.html#.GameConfig 'Phaser config docs'
+[5]: https://google.com 'phaser-react-tools docs'
+[6]: https://github.com/benrosen/phaser-react-tools/issues 'create an issue'
+[7]: https://github.com/benrosen/phaser-react-tools/pulls 'submit a pull request'

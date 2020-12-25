@@ -1,4 +1,4 @@
-import GameContext, { GameProvider } from './contexts/GameContext'
+import { GameContext, GameProvider } from './contexts/GameContext'
 
 import GameComponent from './components/GameComponent'
 import useEventEmitter from './hooks/useEventEmitter'

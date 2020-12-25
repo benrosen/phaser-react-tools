@@ -1,15 +1,17 @@
 import { useContext, useEffect } from 'react'
 
-import GameContext from '../contexts/GameContext'
+import { GameContext } from '../contexts/GameContext'
 
 /**
- * Use the Phaser game instance to listen for events of the given type.
- * @param {string} type The type of event to listen for.
- * @param {eventHandler} handler The event handler callback.
+ * Subscribe a callback function to events of the given type.
+ *
+ * @function
+ * @module useEventListener
+ * @param {string} type The type of event for which to listen.
+ * @param {eventHandler} handler The event handler callback function.
  */
 export default function useEventListener(type, handler) {
   const game = useContext(GameContext)
-
   useEffect(() => {
     if (game === undefined) {
       return
@@ -22,6 +24,9 @@ export default function useEventListener(type, handler) {
 }
 
 /**
+ * Handle an event.
+ *
  * @callback eventHandler
- * @param {*} event The event to be handled.
+ * @param {*} [event] The event to be handled.
+ * @see module:useEventListener
  */

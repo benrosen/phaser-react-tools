@@ -1,15 +1,17 @@
 import { useCallback, useContext } from 'react'
 
-import GameContext from '../contexts/GameContext'
+import { GameContext } from '../contexts/GameContext'
 
 /**
- * Use the Phaser game instance to emit events of the given type.
- * @param {string} type The type of event to be emitted.
- * @returns {(detail: *) => void} The function that emits the event.
+ * Returns a function that can emit an event of the given type.
+ *
+ * @function
+ * @module useEventEmitter
+ * @param {string} type The type of event to emit.
+ * @returns {emitFunction} A function that can emit an event of the given type.
  */
 export default function useEventEmitter(type) {
   const game = useContext(GameContext)
-
   return useCallback(
     (detail) => {
       game.events.emit(type, detail)
@@ -17,3 +19,10 @@ export default function useEventEmitter(type) {
     [game]
   )
 }
+
+/**
+ * Emit an event.
+ *
+ * @callback emitFunction
+ * @param {Object} [detail] The event payload.
+ */

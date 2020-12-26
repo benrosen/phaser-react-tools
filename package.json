@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
+    "docs": "node_modules/.bin/jsdoc -c .jsdoc.json",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",

@@ -8,7 +8,7 @@ import Phaser from 'phaser'
  * @function
  * @module usePhaser
  * @param {Object} config The config object for the Phaser game instance.
- * @returns {PhaserSetup} An object containing a canvas ref and a reference to the Phaser game instance.
+ * @returns {InstanceConfig} A config object containing a canvas ref and a reference to the Phaser game instance.
  */
 export default function usePhaser(config) {
   const canvasRef = useRef()
@@ -27,15 +27,16 @@ export default function usePhaser(config) {
     }
   }, [config])
 
-  /**
-   * A setup object containing a canvas ref and a reference to the Phaser game instance.
-   *
-   * @typedef PhaserSetup
-   * @type {Object}
-   * @property {Object} canvasRef The reference to the Phaser game canvas.
-   * @property {Object} game The Phaser game instance.
-   * @see module:usePhaser
-   * @see module:GameComponent
-   */
   return [canvasRef, game]
 }
+
+/**
+ * A config object containing a canvas ref and a reference to the Phaser game instance.
+ *
+ * @typedef InstanceConfig
+ * @type {Object}
+ * @property {Object} canvasRef The reference to the Phaser game canvas.
+ * @property {Object} game The Phaser game instance.
+ * @see module:usePhaser
+ * @see module:GameComponent
+ */

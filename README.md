@@ -72,14 +72,14 @@ export default () => {
 
 ## Next steps
 
-Check out the working example in the `/example` directory if you want to start tinkering right away, or [visit the docs][5] if you want to read about how everything works.
+Check out the `/example` directory or [visit the docs][5].
 
-If you find a bug or have ideas for improvements, please [create an issue][6] and/or [submit a pull request][7] on GitHub.
+If you find a bug or have ideas for improvements, please [create an issue][6] and/or [submit a pull request][7].
 
 [1]: https://www.npmjs.com/package/phaser 'Phaser package'
 [2]: https://www.npmjs.com/package/react 'React package'
 [3]: https://reactjs.org/docs/higher-order-components.html 'Higher-order component'
 [4]: https://photonstorm.github.io/phaser3-docs/Phaser.Types.Core.html#.GameConfig 'Phaser config docs'
-[5]: https://google.com 'phaser-react-tools docs'
+[5]: https://benrosen.github.io/phaser-react-tools 'phaser-react-tools docs'
 [6]: https://github.com/benrosen/phaser-react-tools/issues 'create an issue'
 [7]: https://github.com/benrosen/phaser-react-tools/pulls 'submit a pull request'

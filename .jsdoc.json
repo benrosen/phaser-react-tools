@@ -3,18 +3,10 @@
     "destination": "./docs/",
     "recurse": true
   },
-  "plugins": ["plugins/markdown"],
   "recurseDepth": 10,
   "source": {
     "exclude": ["node_modules"],
     "includePattern": ".+\\.js(doc|x)?$",
-    "include": ["README.md", "package.json", "src"]
-  },
-  "tags": {
-    "allowUnknownTags": true,
-    "dictionaries": ["jsdoc"]
-  },
-  "templates": {
-    "referenceTitle": "phaser-react-tools"
+    "include": ["README.md", "src"]
   }
 }

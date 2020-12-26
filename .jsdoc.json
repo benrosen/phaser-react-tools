@@ -1,7 +1,6 @@
 {
   "opts": {
     "destination": "./docs/",
-    "template": "node_modules/jsdoc-template",
     "recurse": true
   },
   "plugins": ["plugins/markdown"],

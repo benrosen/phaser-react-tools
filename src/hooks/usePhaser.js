@@ -19,18 +19,33 @@ export default function usePhaser(config = {}) {
     throw new ConfigError(config, 'canvas')
   }
 
-  if (config.type && config.type !== Phaser.CANVAS) {
+  if (config.type !== undefined && config.type !== Phaser.CANVAS) {
     throw new ConfigError(config, 'type')
   }
 
   useEffect(() => {
     const modifiedConfig = config
+
     modifiedConfig.canvas = canvasRef.current
     modifiedConfig.type = Phaser.CANVAS
-    if (config.callbacks.postBoot) {
+
+    const userDefinedPostBootCallback = config.callbacks?.postBoot
+
+    const auxiliaryPostBootCallback = (bootedGame) => {
+      setGame(() => bootedGame)
+    }
+
+    if (userDefinedPostBootCallback) {
       modifiedConfig.callbacks.postBoot = (bootedGame) => {
-        config.callbacks.postBoot(bootedGame)
-        setGame(() => bootedGame)
+        auxiliaryPostBootCallback(bootedGame)
+        userDefinedPostBootCallback(bootedGame)
+      }
+    } else if (config.callbacks) {
+      console.log('user did ')
+      modifiedConfig.callbacks.postBoot = auxiliaryPostBootCallback
+    } else {
+      modifiedConfig.callbacks = {
+        postBoot: auxiliaryPostBootCallback
       }
     }
 

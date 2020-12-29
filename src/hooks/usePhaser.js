@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
+import ConfigError from '../errors/ConfigError'
 import Phaser from 'phaser'
 
 /**
@@ -7,21 +8,34 @@ import Phaser from 'phaser'
  *
  * @function
  * @module usePhaser
- * @param {Object} config The config object for the Phaser game instance.
+ * @param {Object} [config] The config object for the Phaser game instance.
  * @returns {InstanceConfig} A config object containing a canvas ref and a reference to the Phaser game instance.
  */
-export default function usePhaser(config) {
+export default function usePhaser(config = {}) {
   const canvasRef = useRef()
   const [game, setGame] = useState()
+
+  if (config.canvas) {
+    throw new ConfigError(config, 'canvas')
+  }
+
+  if (config.type && config.type !== Phaser.CANVAS) {
+    throw new ConfigError(config, 'type')
+  }
+
   useEffect(() => {
-    config.canvas = canvasRef.current
-    config.callbacks = {
-      postBoot: (bootedGame) => {
+    const modifiedConfig = config
+    modifiedConfig.canvas = canvasRef.current
+    modifiedConfig.type = Phaser.CANVAS
+    if (config.callbacks.postBoot) {
+      modifiedConfig.callbacks.postBoot = (bootedGame) => {
+        config.callbacks.postBoot(bootedGame)
         setGame(() => bootedGame)
       }
     }
-    config.type = Phaser.CANVAS
-    const phaser = new Phaser.Game(config)
+
+    const phaser = new Phaser.Game(modifiedConfig)
+
     return () => {
       phaser.destroy()
     }

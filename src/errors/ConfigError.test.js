@@ -33,6 +33,9 @@ describe('The ConfigError', () => {
     }).toThrow(ConfigError)
   })
 
+  //   TODO test for stack trace
+  //   it('should contain a stack trace.', () => {})
+
   describe('message', () => {
     const config = { title: 'My Phaser Game' }
     const propertyName = 'title'

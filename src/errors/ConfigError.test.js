@@ -7,7 +7,7 @@ describe('The ConfigError', () => {
     expect(() => {
       const config = undefined
       const propertyName = 'title'
-      new ConfigError(config, propertyName)
+      throw new ConfigError(config, propertyName)
     }).toThrow(MissingArgumentError)
   })
 
@@ -15,7 +15,7 @@ describe('The ConfigError', () => {
     expect(() => {
       const config = { title: 'My Phaser Game' }
       const propertyName = undefined
-      new ConfigError(config, propertyName)
+      throw new ConfigError(config, propertyName)
     }).toThrow(MissingArgumentError)
   })
 
@@ -23,7 +23,7 @@ describe('The ConfigError', () => {
     expect(() => {
       const config = { title: 'My Phaser Game' }
       const propertyName = 'asdf'
-      new ConfigError(config, propertyName)
+      throw new ConfigError(config, propertyName)
     }).toThrow(InvalidPropertyNameError)
   })
 

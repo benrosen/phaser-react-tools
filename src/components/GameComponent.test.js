@@ -16,7 +16,7 @@ describe('The GameComponent component', () => {
       const ChildComponent = () => <p>{childMessage}</p>
       const { getByText } = render(
         <GameComponent>
-          <ChildComponent></ChildComponent>
+          <ChildComponent />
         </GameComponent>
       )
       expect(getByText(childMessage)).toBeInTheDocument()
@@ -24,12 +24,12 @@ describe('The GameComponent component', () => {
 
     it('should have access to a GameContext via the useContext hook.', () => {
       const ChildComponent = () => {
-        const game = useContext(GameContext)
+        useContext(GameContext)
         return <p>{childMessage}</p>
       }
       const { getByText } = render(
         <GameComponent>
-          <ChildComponent></ChildComponent>
+          <ChildComponent />
         </GameComponent>
       )
       expect(getByText(childMessage)).toBeInTheDocument()
@@ -47,7 +47,7 @@ describe('The GameComponent component', () => {
             config={{
               type: Phaser.AUTO
             }}
-          ></GameComponent>
+          />
         )
       ).toThrow(ConfigError)
 
@@ -64,7 +64,7 @@ describe('The GameComponent component', () => {
             config={{
               canvas: 'Hello world!'
             }}
-          ></GameComponent>
+          />
         )
       ).toThrow(ConfigError)
 

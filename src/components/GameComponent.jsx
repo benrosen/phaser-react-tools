@@ -29,5 +29,5 @@ GameComponent.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
-  config: PropTypes.object.isRequired
+  config: PropTypes.object
 }

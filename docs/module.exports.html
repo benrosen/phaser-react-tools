@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      useEventListener - Documentation
+      exports - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -79,7 +79,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        useEventListener
+        exports
       </h1>
     
 
@@ -88,24 +88,48 @@
 <section>
   <header>
     
-      
+      <h2>
         
+        exports
+        
+      </h2>
+
+      
+        <div class="class-description">
+          An error that occurs when a protected value on the Phaser config object is set incorrectly.
+        </div>
+      
+    
   </header>
 
   <article>
     <div class="container-overview">
       
         
-          <div class="description">
-            Subscribe a callback function to events of the given type.
-          </div>
-        
-
-        
-          
 
 
+  
+    <h2>Constructor</h2>
+  
 
+  <span class='name-container'>
+    <a class="link-icon" href="#exports">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="exports">
+      <span class="type-signature"></span>new exports<span class="signature">(config, propertyName)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    Creates an instance representing an error that occurs when a protected value on the Phaser config object is set incorrectly.
+  </div>
 
 
 
@@ -137,14 +161,14 @@
     
       <tr>
         
-          <td class="name"><code>type</code></td>
+          <td class="name"><code>config</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      string
+      Object
     </span>
 
     
@@ -158,7 +182,7 @@
         
 
         <td class="description last">
-          The type of event for which to listen.
+          The Phaser config object whose property value is set incorrectly.
           
         </td>
       </tr>
@@ -166,14 +190,14 @@
     
       <tr>
         
-          <td class="name"><code>handler</code></td>
+          <td class="name"><code>propertyName</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      <a href="global.html#eventHandler">eventHandler</a>
+      *
     </span>
 
     
@@ -187,7 +211,7 @@
         
 
         <td class="description last">
-          The event handler callback function.
+          The name of the property whose value is set incorrectly.
           
         </td>
       </tr>
@@ -231,7 +255,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="hooks_useEventListener.js.html">hooks/useEventListener.js</a>, <a href="hooks_useEventListener.js.html#line5">line 5</a>
+          <a href="errors_ConfigError.js.html">errors/ConfigError.js</a>, <a href="errors_ConfigError.js.html#line7">line 7</a>
         </li>
       </ul>
     </dd>
@@ -257,7 +281,420 @@
 
 
 
+      
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+  </article>
+</section>
+
+
+
+
+<section>
+  <header>
+    
+      <h2>
         
+        exports
+        
+      </h2>
+
+      
+        <div class="class-description">
+          An error that occurs when an invalid property name is provided.
+        </div>
+      
+    
+  </header>
+
+  <article>
+    <div class="container-overview">
+      
+        
+
+
+  
+    <h2>Constructor</h2>
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#exports">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="exports">
+      <span class="type-signature"></span>new exports<span class="signature">(&hellip;args<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    Creates an instance representing an error that occurs when an invalid property name is provided.
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+        <th>Attributes</th>
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>args</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+          <td class="attributes">
+            
+              &lt;optional><br>
+            
+
+            
+
+            
+              &lt;repeatable><br>
+            
+          </td>
+        
+
+        
+
+        <td class="description last">
+          The error arguments.
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="errors_InvalidPropertyNameError.js.html">errors/InvalidPropertyNameError.js</a>, <a href="errors_InvalidPropertyNameError.js.html#line4">line 4</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+  </article>
+</section>
+
+
+
+
+<section>
+  <header>
+    
+      <h2>
+        
+        exports
+        
+      </h2>
+
+      
+        <div class="class-description">
+          An error that occurs when a required argument is missing.
+        </div>
+      
+    
+  </header>
+
+  <article>
+    <div class="container-overview">
+      
+        
+
+
+  
+    <h2>Constructor</h2>
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#exports">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="exports">
+      <span class="type-signature"></span>new exports<span class="signature">(&hellip;args<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    Creates an instance representing an error that occurs when a required argument is missing.
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+        <th>Attributes</th>
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>args</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+          <td class="attributes">
+            
+              &lt;optional><br>
+            
+
+            
+
+            
+              &lt;repeatable><br>
+            
+          </td>
+        
+
+        
+
+        <td class="description last">
+          The error arguments.
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="errors_MissingArgumentError.js.html">errors/MissingArgumentError.js</a>, <a href="errors_MissingArgumentError.js.html#line4">line 4</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
     </div>
 

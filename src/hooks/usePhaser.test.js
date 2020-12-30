@@ -6,20 +6,23 @@ import usePhaser from './usePhaser'
 describe('The usePhaser hook', () => {
   it('should throw a ConfigError if the value of config.canvas is defined.', () => {
     const config = { canvas: 'abc' }
-    const { result } = renderHook(() => usePhaser(config))
-    expect(result.error).toBeInstanceOf(ConfigError)
+    jest.spyOn(console, 'error')
+    console.error.mockImplementation(() => {})
+    expect(() => renderHook(() => usePhaser(config))).toThrow(ConfigError)
+    console.error.mockRestore()
   })
 
   it('should throw a ConfigError if the value of config.type is not Phaser.CANVAS.', () => {
     const config = { type: Phaser.AUTO }
-    const { result } = renderHook(() => usePhaser(config))
-    expect(result.error).toBeInstanceOf(ConfigError)
+    jest.spyOn(console, 'error')
+    console.error.mockImplementation(() => {})
+    expect(() => renderHook(() => usePhaser(config))).toThrow(ConfigError)
+    console.error.mockRestore()
   })
 
   it('should not throw a ConfigError if the the value of config.type is Phaser.CANVAS.', () => {
     const config = { type: Phaser.CANVAS }
-    const { result } = renderHook(() => usePhaser(config))
-    expect(result.error).not.toBeInstanceOf(ConfigError)
+    expect(() => renderHook(() => usePhaser(config))).not.toThrow(ConfigError)
   })
 
   it('should return a setup object.', () => {

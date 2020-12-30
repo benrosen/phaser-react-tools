@@ -75,7 +75,7 @@
 
     
 
-    <h3>Modules</h3><ul><li id="GameComponent-nav"><a href="module-GameComponent.html">GameComponent</a></li><li id="GameContext-nav"><a href="module-GameContext.html">GameContext</a></li><li id="GameProvider-nav"><a href="module-GameProvider.html">GameProvider</a></li><li id="useEventEmitter-nav"><a href="module-useEventEmitter.html">useEventEmitter</a></li><li id="useEventListener-nav"><a href="module-useEventListener.html">useEventListener</a></li><li id="usePhaser-nav"><a href="module-usePhaser.html">usePhaser</a></li></ul><h3 id="global-nav"><a href="global.html">Global</a></h3>
+    <h3>Classes</h3><ul><li id="exports-nav"><a href="module.exports.html">exports</a></li></ul><h3>Modules</h3><ul><li id="GameComponent-nav"><a href="module-GameComponent.html">GameComponent</a></li><li id="GameContext-nav"><a href="module-GameContext.html">GameContext</a></li><li id="GameProvider-nav"><a href="module-GameProvider.html">GameProvider</a></li><li id="useEventEmitter-nav"><a href="module-useEventEmitter.html">useEventEmitter</a></li><li id="useEventListener-nav"><a href="module-useEventListener.html">useEventListener</a></li><li id="usePhaser-nav"><a href="module-usePhaser.html">usePhaser</a></li></ul><h3 id="global-nav"><a href="global.html">Global</a></h3>
   </nav>
 
   <div id="main">
@@ -92,6 +92,7 @@
   <article>
     <pre class="prettyprint source linenums"><code>import { useEffect, useRef, useState } from 'react'
 
+import ConfigError from '../errors/ConfigError'
 import Phaser from 'phaser'
 
 /**
@@ -99,21 +100,49 @@ import Phaser from 'phaser'
  *
  * @function
  * @module usePhaser
- * @param {Object} config The config object for the Phaser game instance.
+ * @param {Object} [config] The config object for the Phaser game instance.
  * @returns {InstanceConfig} A config object containing a canvas ref and a reference to the Phaser game instance.
  */
-export default function usePhaser(config) {
+export default function usePhaser(config = {}) {
   const canvasRef = useRef()
   const [game, setGame] = useState()
+
   useEffect(() => {
-    config.canvas = canvasRef.current
-    config.callbacks = {
-      postBoot: (bootedGame) => {
-        setGame(() => bootedGame)
+    if (config.canvas) {
+      throw new ConfigError(config, 'canvas')
+    }
+
+    if (config.type !== undefined &amp;&amp; config.type !== Phaser.CANVAS) {
+      throw new ConfigError(config, 'type')
+    }
+
+    const modifiedConfig = config
+
+    modifiedConfig.canvas = canvasRef.current
+    modifiedConfig.type = Phaser.CANVAS
+
+    const userDefinedPostBootCallback = config.callbacks?.postBoot
+
+    const auxiliaryPostBootCallback = (bootedGame) => {
+      setGame(() => bootedGame)
+    }
+
+    if (userDefinedPostBootCallback) {
+      modifiedConfig.callbacks.postBoot = (bootedGame) => {
+        auxiliaryPostBootCallback(bootedGame)
+        userDefinedPostBootCallback(bootedGame)
+      }
+    } else if (config.callbacks) {
+      console.log('user did ')
+      modifiedConfig.callbacks.postBoot = auxiliaryPostBootCallback
+    } else {
+      modifiedConfig.callbacks = {
+        postBoot: auxiliaryPostBootCallback
       }
     }
-    config.type = Phaser.CANVAS
-    const phaser = new Phaser.Game(config)
+
+    const phaser = new Phaser.Game(modifiedConfig)
+
     return () => {
       phaser.destroy()
     }

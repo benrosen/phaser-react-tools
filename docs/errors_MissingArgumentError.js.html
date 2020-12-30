@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      contexts/GameContext.js - Documentation
+      errors/MissingArgumentError.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -81,7 +81,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        contexts/GameContext.js
+        errors/MissingArgumentError.js
       </h1>
     
 
@@ -90,27 +90,20 @@
 
 <section>
   <article>
-    <pre class="prettyprint source linenums"><code>import { createContext } from 'react'
-
-/**
- * A React Context object that stores the Phaser game instance.
- *
- * @module GameContext
- * @see module:GameProvider
+    <pre class="prettyprint source linenums"><code>/**
+ * An error that occurs when a required argument is missing.
  */
-export const GameContext = createContext({})
-
-/**
- * A higher-order React functional component that provides a GameContext to its children.
- *
- * @function
- * @module GameProvider
- * @param {Object} props The component props.
- * @param {Array|Object} [props.children] The child components.
- * @param {Object} props.value A Phaser game instance.
- * @see module:GameContext
- */
-export const GameProvider = GameContext.Provider
+export default class MissingArgumentError extends TypeError {
+  /**
+   * Creates an instance representing an error that occurs when a required argument is missing.
+   *
+   * @param  {...any} [args] The error arguments.
+   */
+  constructor(...args) {
+    super(...args)
+    Error.captureStackTrace(this, MissingArgumentError)
+  }
+}
 </code></pre>
   </article>
 </section>

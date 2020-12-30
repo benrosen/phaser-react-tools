@@ -15,15 +15,15 @@ export default function usePhaser(config = {}) {
   const canvasRef = useRef()
   const [game, setGame] = useState()
 
-  if (config.canvas) {
-    throw new ConfigError(config, 'canvas')
-  }
-
-  if (config.type !== undefined && config.type !== Phaser.CANVAS) {
-    throw new ConfigError(config, 'type')
-  }
-
   useEffect(() => {
+    if (config.canvas) {
+      throw new ConfigError(config, 'canvas')
+    }
+
+    if (config.type !== undefined && config.type !== Phaser.CANVAS) {
+      throw new ConfigError(config, 'type')
+    }
+
     const modifiedConfig = config
 
     modifiedConfig.canvas = canvasRef.current

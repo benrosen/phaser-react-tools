@@ -12,16 +12,16 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "docs": "node_modules/.bin/jsdoc -c .jsdoc.json",
+    "build": "microbundle-crl",
+    "deploy": "run-s publish & git push -u origin HEAD",
+    "document": "node_modules/.bin/jsdoc -c .jsdoc.json",
+    "patch": "run-s version patch -m 'Patch %s'",
+    "predeploy": "run-s test build document",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
-    "test:lint": "eslint src",
+    "test": "run-s test:unit test:lint",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build"
+    "test:lint": "eslint . --ext .js,.jsx",
+    "test:watch": "react-scripts test --env=jsdom"
   },
   "peerDependencies": {
     "phaser": "^3.0.0",

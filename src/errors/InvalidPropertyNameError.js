@@ -1,5 +1,9 @@
 /**
  * An error that occurs when an invalid property name is provided.
+ *
+ * @class
+ * @module InvalidPropertyNameError
+ * @extends TypeError
  */
 export default class InvalidPropertyNameError extends TypeError {
   /**

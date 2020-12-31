@@ -3,6 +3,10 @@ import MissingArgumentError from './MissingArgumentError'
 
 /**
  * An error that occurs when a protected value on the Phaser config object is set incorrectly.
+ *
+ * @class
+ * @module ConfigError
+ * @extends TypeError
  */
 export default class ConfigError extends TypeError {
   /**

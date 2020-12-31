@@ -1,5 +1,9 @@
 /**
  * An error that occurs when a required argument is missing.
+ *
+ * @class
+ * @module MissingArgumentError
+ * @extends TypeError
  */
 export default class MissingArgumentError extends TypeError {
   /**

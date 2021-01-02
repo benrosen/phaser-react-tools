@@ -7,7 +7,6 @@ import MissingArgumentError from './MissingArgumentError'
  * @class
  * @module ConfigError
  * @extends TypeError
- * @throws {MissingArgumentError} Will throw a MissingArgumentError if required arguments are missing.
  */
 export default class ConfigError extends TypeError {
   /**
@@ -15,6 +14,7 @@ export default class ConfigError extends TypeError {
    *
    * @param {Object} config The Phaser config object whose property value is set incorrectly.
    * @param {*} propertyName The name of the property whose value is set incorrectly.
+   * @throws {module:MissingArgumentError} Will throw a MissingArgumentError if required arguments are missing.
    */
   constructor(config, propertyName) {
     if (!config) {

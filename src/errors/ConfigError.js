@@ -7,6 +7,7 @@ import MissingArgumentError from './MissingArgumentError'
  * @class
  * @module ConfigError
  * @extends TypeError
+ * @throws {MissingArgumentError} Will throw a MissingArgumentError if required arguments are missing.
  */
 export default class ConfigError extends TypeError {
   /**

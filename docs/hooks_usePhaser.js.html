@@ -102,6 +102,7 @@ import Phaser from 'phaser'
  * @module usePhaser
  * @param {Object} [config] The config object for the Phaser game instance.
  * @returns {InstanceConfig} A config object containing a canvas ref and a reference to the Phaser game instance.
+ * @throws {ConfigError} Will throw a ConfigError if the Phaser game is mis-configured by the user.
  */
 export default function usePhaser(config = {}) {
   const canvasRef = useRef()

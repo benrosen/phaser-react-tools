@@ -1,4 +1,0 @@
-export default {
-  ON_UPDATE: 'ON_UPDATE',
-  ON_BUTTON_CLICK: 'ON_BUTTON_CLICK'
-}

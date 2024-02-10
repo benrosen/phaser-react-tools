@@ -5,5 +5,15 @@
 		"test": "npm run test:unit && npm run test:e2e",
 		"test:unit": "echo 'no unit tests'",
 		"test:e2e": "cd ../testbed && npm run test"
+	},
+	"dependencies": {
+		"phaser": "^3.70.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.55",
+		"prettier": "^3.2.5"
 	}
 }
+

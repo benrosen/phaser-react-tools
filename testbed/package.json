@@ -1,0 +1,8 @@
+{
+	"name": "phaser-react-tools-testbed",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"test": "echo 'no e2e tests'"
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "phaser-react-tools",
+	"version": "2.0.0",
+	"scripts": {
+		"test": "npm run test:unit && npm run test:e2e",
+		"test:unit": "echo 'no unit tests'",
+		"test:e2e": "cd ../testbed && npm run test"
+	}
+}

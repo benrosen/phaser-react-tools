@@ -48,10 +48,10 @@ Drop the component into your React app.
 ```typescript jsx
 const App = () => {
   return (
-	<div>
-	  <h1>My Game</h1>
-	  <MyGameComponent />
-	</div>
+    <div>
+      <h1>My Game</h1>
+      <MyGameComponent />
+    </div>
   );
 }
 ```
@@ -86,7 +86,7 @@ Use the `useEmitter` hook to send events from React to Phaser.
 const emit = useEmitter();
 
 useEffect(() => {
-	emit(GameEvents.PauseModalMounted)
+  emit(GameEvents.PauseModalMounted)
 }, []);
 ```
 

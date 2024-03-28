@@ -14,6 +14,10 @@
 	"devDependencies": {
 		"@types/react": "^18.2.55",
 		"prettier": "^3.2.5"
+	},
+	"peerDependencies": {
+		"phaser": "^3.70.0",
+		"react": "^18.2.0"
 	}
 }
 
